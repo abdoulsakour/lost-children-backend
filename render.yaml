@@ -2,6 +2,9 @@ services:
   - type: web
     name: lost-children-api
     env: python
-    region: frankfurt
-    buildCommand: "pip install -r requirements.txt"
+    region: europe-west4
+    buildCommand: |
+      pip install -r requirements.txt
+      chmod +x download_models.sh
+      ./download_models.sh
     startCommand: "python app.py"
